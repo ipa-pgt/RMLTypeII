@@ -3,7 +3,7 @@ MAINTAINER Lars Tingelstad <lars.tingelstad@ntnu.no>
 
 USER root
 
-RUN apt-get update && apt-get install -y cmake g++ python-dev
+RUN apt-get update && apt-get install -y cmake libpython-dev
 
 USER main
 
