@@ -9,4 +9,5 @@ USER main
 
 RUN pip install numpy matplotlib
 
+RUN git submodule init && git submodule update
 RUN mkdir build && cd build && cmake .. && cmake --build .
