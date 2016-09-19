@@ -7,7 +7,7 @@ find_package(PythonLibs 2.7.9 REQUIRED)
 
 include_directories(
   include
-  pybind11/include
+  pybind11-1.8.1/include
   ${PYTHON_INCLUDE_DIRS}
   )
 
