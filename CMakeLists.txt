@@ -3,7 +3,7 @@ project(RMLTypeII)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -O3 -fno-unsafe-math-optimizations")
 
-find_package(PythonLibs 2.7.11 REQUIRED)
+find_package(PythonLibs 2.7.9 REQUIRED)
 
 include_directories(
   include
