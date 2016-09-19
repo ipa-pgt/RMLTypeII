@@ -20,7 +20,7 @@ PYBIND11_PLUGIN(reflexxes_motion_library) {
       .def(py::init<const unsigned int &, const double &,
                     const unsigned int &>(),
            py::arg("degrees_of_freedom"), py::arg("cycle_time_in_seconds"),
-           py::arg("number_of_additional_threads") = 0)
+           py::arg("number_of_additional_threads") = py::int_(0))
       .def("position", &ReflexxesAPI::RMLPosition)
       .def("velocity", &ReflexxesAPI::RMLVelocity);
 
