@@ -3,10 +3,7 @@ MAINTAINER Lars Tingelstad <lars.tingelstad@ntnu.no>
 
 USER root
 
-ENV CC clang-3.5
-ENV CXX clang++-3.5
-
-RUN apt-get update && apt-get install -y cmake libpython-dev clang-3.5
+RUN apt-get update && apt-get install -y cmake
 
 USER main
 
