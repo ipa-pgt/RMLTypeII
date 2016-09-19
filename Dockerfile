@@ -5,6 +5,8 @@ USER root
 
 RUN apt-get update && apt-get install -y cmake
 
+ENV PYTHONPATH $PYTHONPATH:$HOME/build
+
 USER main
 
 RUN pip install numpy matplotlib
