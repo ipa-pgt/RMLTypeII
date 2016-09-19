@@ -3,10 +3,10 @@ MAINTAINER Lars Tingelstad <lars.tingelstad@ntnu.no>
 
 USER root
 
-ENV CC clang-3.8
-ENV CXX clang++-3.8
+ENV CC clang-3.7
+ENV CXX clang++-3.7
 
-RUN apt-get update && apt-get install -y cmake libpython-dev clang-3.8
+RUN apt-get update && apt-get install -y cmake libpython-dev clang-3.7
 
 USER main
 
