@@ -3,7 +3,12 @@ project(RMLTypeII)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -O3 -fno-unsafe-math-optimizations")
 
+find_package(catkin REQUIRED)
 find_package(PythonLibs 2.7.11 REQUIRED)
+
+catkin_python_setup()
+
+catkin_package()
 
 include_directories(
   include
@@ -62,5 +67,9 @@ target_link_libraries(reflexxes_motion_library
   TypeIIRML
   ${PYTHON_LIBRARIES}
   )
-set_target_properties(reflexxes_motion_library PROPERTIES PREFIX "")
-set_target_properties(reflexxes_motion_library PROPERTIES SUFFIX ".so")
+# change output directory, so python can find the module, and set prefix to ""
+# to omit the default "lib".
+set_target_properties(reflexxes_motion_library PROPERTIES
+  PREFIX ""
+  LIBRARY_OUTPUT_DIRECTORY ${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_PYTHON_DESTINATION}
+)
