@@ -143,6 +143,14 @@ PYBIND11_PLUGIN(reflexxes_motion_library) {
                                instance.GetNewPositionVector(
                                    arr.data(), arr.size() * sizeof(double));
                                return arr;
+                             })
+      .def("is_trajectory_phase_synchronized",
+                             [](RMLPositionOutputParameters &instance) {
+                               return instance.IsTrajectoryPhaseSynchronized();
+                             })
+      .def("was_a_complete_computation_performed_during_the_last_cycle",
+                             [](RMLPositionOutputParameters &instance) {
+                               return instance.WasACompleteComputationPerformedDuringTheLastCycle();
                              });
 
   py::class_<RMLPositionFlags>(m, "PositionFlags").def(py::init<>());
