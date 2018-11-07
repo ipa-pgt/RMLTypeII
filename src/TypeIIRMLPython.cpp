@@ -153,7 +153,21 @@ PYBIND11_PLUGIN(reflexxes_motion_library) {
                                return instance.WasACompleteComputationPerformedDuringTheLastCycle();
                              });
 
-  py::class_<RMLPositionFlags>(m, "PositionFlags").def(py::init<>());
+  py::class_<RMLPositionFlags>(m, "PositionFlags")
+      .def(py::init<>())
+      .def_property("BehaviorAfterFinalStateOfMotionIsReached",
+                    [](RMLPositionFlags &instance) {
+                      return instance.BehaviorAfterFinalStateOfMotionIsReached;
+                    },
+                    [](RMLPositionFlags &instance, int behavior) {
+                      instance.BehaviorAfterFinalStateOfMotionIsReached = behavior;
+                    });
+
+  py::enum_<RMLPositionFlags::FinalMotionBehaviorEnum>(m, "FinalMotionBehaviorEnum")
+      .value("KEEP_TARGET_VELOCITY", RMLPositionFlags::FinalMotionBehaviorEnum::KEEP_TARGET_VELOCITY)
+      .value("RECOMPUTE_TRAJECTORY",
+             RMLPositionFlags::FinalMotionBehaviorEnum::RECOMPUTE_TRAJECTORY)
+      .export_values();
 
   py::enum_<ReflexxesAPI::RMLResultValue>(m, "ResultValue")
       .value("WORKING", ReflexxesAPI::RMLResultValue::RML_WORKING)
